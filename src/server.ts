@@ -1,18 +1,20 @@
 import fastify from "fastify";
-import { knex } from "./database";
+import crypto from "node:crypto";
 
-const server = fastify();
+import { knex } from "./configs";
 
-server.get("/hello", async () => {
-  const tables = await knex("sqlite_schema").select("*");
+const app = fastify();
 
-  return tables;
+app.get("/hello", async () => {
+  const transactions = await knex("transactions").select("*");
+
+  return transactions;
 });
 
-server
+app
   .listen({
     port: 4000,
   })
   .then(() => {
-    console.log("HTTP Server Running in port http://localhost:4000/hello");
+    console.log("HTTP Server Running in port http://localhost:4000");
   });
