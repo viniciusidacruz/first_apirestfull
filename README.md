@@ -1,3 +1,11 @@
+# Get Started
+
+- Implements environment variables
+
+- First command: npm install
+- Second command: npm run knex migrate:rollback --all
+- Third command: npm run knex migrate:latest
+
 # Roules Development
 
 - [x] O usuário deve pode criar uma nova transação.
